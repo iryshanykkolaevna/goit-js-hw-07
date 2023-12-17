@@ -29,7 +29,7 @@ const createEl = ({ url, alt }) =>
   `<li  class="li">
        <img class="img"
        src="${url}"
-        alt="${alt}" />
+        alt="${alt}"' width='360' height='300' />
   </li>`;
 
 const elem = images.map(createEl).join('');
