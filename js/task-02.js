@@ -25,14 +25,15 @@ const images = [
   },
 ];
 
-const createEl = ({ url, alt }) =>
-  `<li  class="li">
-       <img class="img"
-       src="${url}"
-        alt="${alt}" />
-  </li>`;
-
-const elem = images.map(createEl).join('');
-
 const gallery = document.querySelector('.gallery');
-gallery.insertAdjacentHTML('beforeend', elem);
+
+const newImg = images
+  .map(
+    el =>
+      `<li><img src=${el.url} alt=${el.alt} width='360' height='300' /></li>`
+  )
+  .join('');
+
+gallery.insertAdjacentHTML('beforeend', newImg);
+
+console.log(gallery);
