@@ -8,19 +8,20 @@ function getRandomHexColor() {
     .toString(16)
     .padStart(6, 0)}`;
 }
-
 function createBoxes(amount) {
-  destroyBoxes(); 
-  let step = 30;
-
-  for (let i = 1; i <= amount; i++) {
-    let box = document.createElement('div');
-
-    box.style.width = `${step}px`;
-    box.style.height = `${step}px`;
-    step += 10;
-    box.style.backgroundColor = getRandomHexColor();
-    boxes.append(box);
+  if (amount >= 1 && amount <= 100) {
+    const newBoxes = [];
+    let width = 30;
+    let height = 30;
+    for (let i = 0; i < amount; i++) {
+      const color = getRandomHexColor();
+      const newBox = `<div style="width: ${width}px; height: ${height}px; background-color: ${color};"></div>`;
+      newBoxes.push(newBox);
+      width += 10;
+      height += 10;
+    }
+    boxes.innerHTML = newBoxes.join('');
+    input.value = '';
   }
 }
 
